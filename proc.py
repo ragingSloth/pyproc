@@ -43,7 +43,7 @@ def start_time(PID):
     system_start = ' '.join(system_start.split()[2:])
     system_start = datetime.strptime(system_start, '%Y-%m-%d %H:%M')
     stat = open('/proc/'+str(PID)+'/stat','rt')
-    start = stat.read().split()[19]
+    start = stat.read().split()[21]
     hertz = os.sysconf('SC_CLK_TCK')
     return system_start + timedelta(float(start)/hertz)
 #    start = filter(lambda x: match('[0-9]+', x) is not None and len(x) < 6, start)
